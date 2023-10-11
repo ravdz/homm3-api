@@ -1,6 +1,6 @@
 # HoMM3 api
 
-A RESTful API for Heroes of Might & Magic 3 (in progress 🔨)
+A RESTful API for Heroes of Might & Magic 3 (work in progress 🔨)
 
 ## Tech Stack
 
