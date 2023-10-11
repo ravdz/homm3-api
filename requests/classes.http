@@ -1,0 +1,27 @@
+### Read classes
+GET http://localhost:3000/classes
+
+### Read class
+GET http://localhost:3000/classes/1
+
+### Create class
+POST http://localhost:3000/classes
+Content-Type: application/json
+
+{
+    "name": "Knight",
+    "townId": 2
+}
+
+### Update class
+PUT http://localhost:3000/classes
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Rogue",
+    "townId": 2
+}
+
+### Delete class
+DELETE http://localhost:3000/classes/3

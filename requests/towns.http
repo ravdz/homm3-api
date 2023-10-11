@@ -1,0 +1,5 @@
+### Read towns
+GET http://localhost:3000/towns
+
+### Read town
+GET http://localhost:3000/towns/1

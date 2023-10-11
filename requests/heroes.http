@@ -1,0 +1,5 @@
+### Read heroes
+GET http://localhost:3000/heroes
+
+### Read hero
+GET http://localhost:3000/heroes/1

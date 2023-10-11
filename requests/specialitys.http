@@ -1,0 +1,25 @@
+### Read specialitys
+GET http://localhost:3000/specialitys
+
+### Read speciality
+GET http://localhost:3000/specialitys/1
+
+### Create speciality
+POST http://localhost:3000/specialitys
+Content-Type: application/json
+
+{
+    "name": "Ballista"
+}
+
+### Update speciality
+PUT http://localhost:3000/specialitys
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Navigation"
+}
+
+### Delete speciality
+DELETE http://localhost:3000/specialitys/1

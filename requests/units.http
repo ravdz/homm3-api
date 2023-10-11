@@ -1,0 +1,5 @@
+### Read units
+GET http://localhost:3000/units
+
+### Read unit
+GET http://localhost:3000/units/1
