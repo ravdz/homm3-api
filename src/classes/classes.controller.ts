@@ -14,7 +14,11 @@ import { ClassService } from '@/classes/class.service';
 
 @Controller('classes')
 export class ClassesController {
-  private classService = new ClassService();
+  private classService: ClassService;
+
+  constructor(classService: ClassService) {
+    this.classService = classService;
+  }
 
   @Get()
   getClasses() {

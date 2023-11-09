@@ -2,4 +2,24 @@
 GET http://localhost:3000/towns
 
 ### Read town
-GET http://localhost:3000/towns/1
+GET http://localhost:3000/towns/4
+
+### Create town
+POST http://localhost:3000/towns
+Content-Type: application/json
+
+{
+    "name": "Castle"
+}
+
+### Update town
+PUT http://localhost:3000/towns
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Bastion",
+}
+
+### Delete town
+DELETE http://localhost:3000/towns/4

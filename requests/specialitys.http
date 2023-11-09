@@ -2,14 +2,14 @@
 GET http://localhost:3000/specialitys
 
 ### Read speciality
-GET http://localhost:3000/specialitys/1
+GET http://localhost:3000/specialitys/2
 
 ### Create speciality
 POST http://localhost:3000/specialitys
 Content-Type: application/json
 
 {
-    "name": "Ballista"
+    "name": "Gold"
 }
 
 ### Update speciality
@@ -17,9 +17,9 @@ PUT http://localhost:3000/specialitys
 Content-Type: application/json
 
 {
-    "id": 1,
-    "name": "Navigation"
+    "id": 3,
+    "name": "Logistic"
 }
 
 ### Delete speciality
-DELETE http://localhost:3000/specialitys/1
+DELETE http://localhost:3000/specialitys/3

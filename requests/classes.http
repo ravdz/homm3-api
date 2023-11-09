@@ -9,8 +9,8 @@ POST http://localhost:3000/classes
 Content-Type: application/json
 
 {
-    "name": "Knight",
-    "townId": 2
+    "name": "Warrior",
+    "townId": 4
 }
 
 ### Update class
@@ -18,10 +18,10 @@ PUT http://localhost:3000/classes
 Content-Type: application/json
 
 {
-    "id": 3,
-    "name": "Rogue",
-    "townId": 2
+    "id": 2,
+    "name": "Knight",
+    "townId": 4
 }
 
 ### Delete class
-DELETE http://localhost:3000/classes/3
+DELETE http://localhost:3000/classes/1

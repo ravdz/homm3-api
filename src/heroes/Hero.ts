@@ -1,4 +1,13 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  BaseEntity,
+  ManyToOne,
+} from 'typeorm';
+import { HeroClass } from '@/classes/Class';
+import { Speciality } from '@/specialitys/Speciality';
+import { Town } from '@/towns/Town';
 
 @Entity()
 export class Hero extends BaseEntity {
@@ -8,12 +17,16 @@ export class Hero extends BaseEntity {
   @Column({ type: 'varchar' })
   name: string;
 
-  @Column({ type: 'int' })
-  townId: number;
+  @ManyToOne(() => Town, (town) => town.heroes, {
+    onDelete: 'CASCADE',
+  })
+  town: Town;
 
-  @Column({ type: 'int' })
-  classId: number;
+  @ManyToOne(() => HeroClass, (heroClass) => heroClass.heroes, {
+    onDelete: 'CASCADE',
+  })
+  class: HeroClass;
 
-  @Column({ type: 'int' })
-  specialityId: number;
+  @ManyToOne(() => Speciality, (speciality) => speciality.heroes)
+  speciality: Speciality;
 }

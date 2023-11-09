@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { Speciality } from '@/specialitys/Speciality';
 import { CreateSpecialityDTO } from '@/specialitys/dto/create-speciality.dto';
 import { UpdateSpecialityDTO } from '@/specialitys/dto/update-speciality.dto';
-import { Speciality } from '@/specialitys/Speciality';
 
 @Injectable()
 export class SpecialityService {

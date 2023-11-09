@@ -8,13 +8,17 @@ import {
   Body,
   ParseIntPipe,
 } from '@nestjs/common';
+import { SpecialityService } from '@/specialitys/speciality.service';
 import { CreateSpecialityDTO } from '@/specialitys/dto/create-speciality.dto';
 import { UpdateSpecialityDTO } from '@/specialitys/dto/update-speciality.dto';
-import { SpecialityService } from '@/specialitys/speciality.service';
 
 @Controller('specialitys')
 export class SpecialitysController {
-  private specialityService = new SpecialityService();
+  private specialityService: SpecialityService;
+
+  constructor(specialityService: SpecialityService) {
+    this.specialityService = specialityService;
+  }
 
   @Get()
   getSpecialitys() {

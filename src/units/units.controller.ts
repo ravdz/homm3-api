@@ -3,7 +3,11 @@ import { UnitService } from '@/units/unit.service';
 
 @Controller('units')
 export class UnitsController {
-  private unitService = new UnitService();
+  private unitService: UnitService;
+
+  constructor(unitService: UnitService) {
+    this.unitService = unitService;
+  }
 
   @Get()
   getUnits() {

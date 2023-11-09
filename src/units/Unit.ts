@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 import { Resource } from '@/resources/Resource';
 
 class UnitStats {
@@ -16,7 +16,7 @@ class CostItem {
 }
 
 @Entity()
-export class Unit {
+export class Unit extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 

@@ -2,4 +2,30 @@
 GET http://localhost:3000/heroes
 
 ### Read hero
-GET http://localhost:3000/heroes/1
+GET http://localhost:3000/heroes/10
+
+### Create class
+POST http://localhost:3000/heroes
+Content-Type: application/json
+
+{
+    "name": "Karlah",
+    "townId": 4,
+    "classId": 1,
+    "specialityId": 4
+}
+
+### Update class
+PUT http://localhost:3000/heroes
+Content-Type: application/json
+
+{
+    "id": 7,
+    "name": "Karlah",
+    "townId": 4,
+    "classId": 2,
+    "specialityId": 4
+}
+
+### Delete class
+DELETE http://localhost:3000/heroes/9
