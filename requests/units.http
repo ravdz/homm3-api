@@ -2,4 +2,64 @@
 GET http://localhost:3000/units
 
 ### Read unit
-GET http://localhost:3000/units/1
+GET http://localhost:3000/units/3
+
+### Create unit
+POST http://localhost:3000/units
+Content-Type: application/json
+
+{
+    "name": "Red dragon",
+    "level": 7,
+    "townId": 5,
+    "cost": [
+        {
+            "resource": 23,
+            "units": 200
+        },
+        {
+            "resource": "SULFUR",
+            "units": 2
+        }
+    ],
+    "stats": {
+        "min_damage": 50,
+        "max_damage": 120,
+        "attack": 12,
+        "defense": 10,
+        "health": 45,
+        "speed": 20
+    }
+}
+
+### Update unit
+PUT http://localhost:3000/units
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Black dragon",
+    "level": 7,
+    "townId": 5,
+    "cost": [
+        {
+            "resource": "GOLD",
+            "units": 200
+        },
+        {
+            "resource": "SULFUR",
+            "units": 2
+        }
+    ],
+    "stats": {
+        "min_damage": 50,
+        "max_damage": 120,
+        "attack": 12,
+        "defense": 10,
+        "health": 45,
+        "speed": 20
+    }
+}
+
+### Delete unit
+DELETE http://localhost:3000/units/2

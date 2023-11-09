@@ -8,6 +8,7 @@ export class SpecialityService {
   async getOneById(specialityId: number): Promise<Speciality> {
     const speciality = await Speciality.findOne({
       where: { id: specialityId },
+      relations: ['heroes'],
     });
     if (!speciality) {
       throw new NotFoundException(`Speciality id: ${specialityId} not found`);

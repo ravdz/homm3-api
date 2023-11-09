@@ -1,5 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  BaseEntity,
+  ManyToOne,
+} from 'typeorm';
 import { Resource } from '@/resources/Resource';
+import { Town } from '@/towns/Town';
 
 class UnitStats {
   min_damage: number;
@@ -26,8 +33,10 @@ export class Unit extends BaseEntity {
   @Column({ type: 'int' })
   level: number;
 
-  @Column({ type: 'int' })
-  townId: number;
+  @ManyToOne(() => Town, (town) => town.units, {
+    onDelete: 'CASCADE',
+  })
+  town: Town;
 
   @Column({ type: 'json' })
   cost: CostItem[];

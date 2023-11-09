@@ -1,9 +1,9 @@
 export enum Resource {
-  GOLD = 1,
-  WOOD,
-  ORE,
-  GEMS,
-  MERCURY,
-  SULFUR,
-  CRYSTAL,
+  Gold = 'GOLD',
+  Wood = 'WOOD',
+  Ore = 'ORE',
+  Gems = 'GEMS',
+  Mercury = 'MERCURY',
+  Sulfur = 'SULFUR',
+  Crystal = 'CRYSTAL',
 }

@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 import { Hero } from '@/heroes/Hero';
 import { HeroClass } from '@/classes/Class';
+import { Unit } from '@/units/Unit';
 
 @Entity()
 export class Town extends BaseEntity {
@@ -21,4 +22,7 @@ export class Town extends BaseEntity {
 
   @OneToMany(() => HeroClass, (heroClass) => heroClass.town)
   classes: HeroClass[];
+
+  @OneToMany(() => Unit, (unit) => unit.town)
+  units: Unit[];
 }

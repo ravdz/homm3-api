@@ -27,6 +27,8 @@ export class Hero extends BaseEntity {
   })
   class: HeroClass;
 
-  @ManyToOne(() => Speciality, (speciality) => speciality.heroes)
+  @ManyToOne(() => Speciality, (speciality) => speciality.heroes, {
+    onDelete: 'CASCADE',
+  })
   speciality: Speciality;
 }

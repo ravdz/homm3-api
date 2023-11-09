@@ -8,7 +8,7 @@ export class TownService {
   async getOneById(townId: number): Promise<Town> {
     const town = await Town.findOne({
       where: { id: townId },
-      relations: ['heroes', 'classes'],
+      relations: ['heroes', 'classes', 'units'],
     });
     if (!town) {
       throw new NotFoundException(`Town id: ${townId} not found`);

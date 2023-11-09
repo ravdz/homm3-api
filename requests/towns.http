@@ -2,7 +2,7 @@
 GET http://localhost:3000/towns
 
 ### Read town
-GET http://localhost:3000/towns/4
+GET http://localhost:3000/towns/5
 
 ### Create town
 POST http://localhost:3000/towns

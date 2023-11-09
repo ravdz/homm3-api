@@ -2,7 +2,7 @@
 GET http://localhost:3000/classes
 
 ### Read class
-GET http://localhost:3000/classes/1
+GET http://localhost:3000/classes/3
 
 ### Create class
 POST http://localhost:3000/classes
@@ -10,7 +10,7 @@ Content-Type: application/json
 
 {
     "name": "Warrior",
-    "townId": 4
+    "townId": 5
 }
 
 ### Update class
