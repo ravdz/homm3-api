@@ -9,7 +9,7 @@ POST http://localhost:3000/towns
 Content-Type: application/json
 
 {
-    "name": "Castle"
+    "name": "Tower"
 }
 
 ### Update town
@@ -22,4 +22,4 @@ Content-Type: application/json
 }
 
 ### Delete town
-DELETE http://localhost:3000/towns/4
+DELETE http://localhost:3000/towns/7
