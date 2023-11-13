@@ -2,14 +2,14 @@
 GET http://localhost:3000/towns
 
 ### Read town
-GET http://localhost:3000/towns/5
+GET http://localhost:3000/towns/1
 
 ### Create town
 POST http://localhost:3000/towns
 Content-Type: application/json
 
 {
-    "name": "Tower"
+    "name": "Castle"
 }
 
 ### Update town

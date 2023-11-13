@@ -1,50 +1,32 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { databaseConfig } from '@/config/database.config';
+import { envValidationSchema } from '@/config/envValidation.config';
+
 import { AuthModule } from '@/auth/auth.module';
-import { TownsController } from '@/towns/towns.controller';
-import { UnitsController } from '@/units/units.controller';
-import { ResourcesController } from '@/resources/resources.controller';
-import { HeroesController } from '@/heroes/heroes.controller';
-import { ClassesController } from '@/classes/classes.controller';
-import { SpecialitysController } from '@/specialitys/specialitys.controller';
-import { HeroService } from '@/heroes/hero.service';
-import { ClassService } from '@/classes/class.service';
-import { SpecialityService } from '@/specialitys/speciality.service';
-import { TownService } from '@/towns/town.service';
-import { UnitService } from '@/units/unit.service';
-import { HeroClass } from '@/classes/Class';
-import { Speciality } from '@/specialitys/Speciality';
-import { Hero } from '@/heroes/Hero';
-import { Town } from '@/towns/Town';
-import { Unit } from '@/units/Unit';
+import { TownModule } from '@/towns/town.module';
+import { UnitModule } from '@/units/unit.module';
+import { SpecialityModule } from '@/specialitys/speciality.module';
+import { ResourceModule } from '@/resources/resource.module';
+import { HeroModule } from '@/heroes/hero.module';
+import { ClassModule } from '@/classes/class.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
-    TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: './database/my-db.sqlite3',
-      autoLoadEntities: true,
-      synchronize: true,
-      entities: [HeroClass, Speciality, Hero, Town, Unit],
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: [`.env.${process.env.NODE_ENV}`],
+      validationSchema: envValidationSchema,
     }),
+    TypeOrmModule.forRootAsync(databaseConfig),
     AuthModule,
-  ],
-  controllers: [
-    TownsController,
-    UnitsController,
-    ResourcesController,
-    HeroesController,
-    ClassesController,
-    SpecialitysController,
-  ],
-  providers: [
-    HeroService,
-    ClassService,
-    SpecialityService,
-    TownService,
-    UnitService,
+    TownModule,
+    UnitModule,
+    SpecialityModule,
+    ResourceModule,
+    HeroModule,
+    ClassModule,
   ],
 })
 export class AppModule {}
