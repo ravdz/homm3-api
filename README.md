@@ -1,27 +1,32 @@
 # HoMM3 api
 
-A RESTful API for Heroes of Might & Magic 3 (work in progress 🔨)
+A RESTful API for Heroes of Might & Magic 3
 
 ## Tech Stack
 
 - NestJS
 - TypeScript
+- PostgreSQL
 
 ## Installation
 
 ```bash
-$ npm install
+npm install
+```
+
+## Environment variables
+Copy .env.example file and fill it.
+
+```bash
+cp .env.example .env.development
 ```
 
 ## Running the app
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
+# development & watch mode
+npm run start:dev
 
 # production mode
-$ npm run start:prod
+npm run start:prod
 ```
