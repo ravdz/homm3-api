@@ -9,7 +9,7 @@ POST http://localhost:3000/heroes
 Content-Type: application/json
 
 {
-    "name": "Karlah",
+    "name": "Edric",
     "townId": 5,
     "classId": 3,
     "specialityId": 5
@@ -21,7 +21,7 @@ Content-Type: application/json
 
 {
     "id": 7,
-    "name": "Karlah",
+    "name": "Edric",
     "townId": 4,
     "classId": 2,
     "specialityId": 4
