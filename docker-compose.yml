@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: heroes3-db
+    environment:
+      POSTGRES_USER: ${DB_USER:-homm3}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-homm3}
+      POSTGRES_DB: ${DB_NAME:-homm3}
+    ports:
+      - '${DB_PORT:-5434}:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

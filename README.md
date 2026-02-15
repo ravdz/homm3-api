@@ -1,4 +1,4 @@
-# HoMM3 api
+# Heroes3 API
 
 A RESTful API for Heroes of Might & Magic 3
 
@@ -8,20 +8,29 @@ A RESTful API for Heroes of Might & Magic 3
 - TypeScript
 - PostgreSQL
 
-## Installation
+## Setup
+
+### 1. Install dependencies
 
 ```bash
 npm install
 ```
 
-## Environment variables
-Copy .env.example file and fill it.
+### 2. Environment
+
+Copy the example env and adjust if needed:
 
 ```bash
 cp .env.example .env.development
 ```
 
-## Running the app
+### 3. Start PostgreSQL (Docker)
+
+```bash
+docker compose up -d
+```
+
+### 4. Run the app
 
 ```bash
 # development & watch mode
@@ -30,3 +39,5 @@ npm run start:dev
 # production mode
 npm run start:prod
 ```
+
+In development, TypeORM `synchronize` creates/updates tables automatically.

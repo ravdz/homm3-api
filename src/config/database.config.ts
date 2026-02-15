@@ -23,10 +23,7 @@ export class TypeOrmConfig {
       password: configService.get<string>('DB_PASSWORD'),
       database: configService.get<string>('DB_NAME'),
       autoLoadEntities: true,
-      synchronize: false, // not for production!
-      migrationsRun: false,
-      entities: ['dist/**/*.entity{.ts,.js}'],
-      migrations: ['dist/database/migrations/**/*{.ts,.js}'],
+      synchronize: process.env.NODE_ENV !== 'production',
     };
   }
 }
