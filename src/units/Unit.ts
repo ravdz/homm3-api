@@ -22,7 +22,7 @@ class CostItem {
   units: number;
 }
 
-@Entity()
+@Entity('unit')
 export class Unit extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;

@@ -9,7 +9,7 @@ import {
 import { Hero } from '@/heroes/Hero';
 import { Town } from '@/towns/Town';
 
-@Entity()
+@Entity('heroclass')
 export class HeroClass extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;

@@ -9,7 +9,7 @@ import { Hero } from '@/heroes/Hero';
 import { HeroClass } from '@/classes/Class';
 import { Unit } from '@/units/Unit';
 
-@Entity()
+@Entity('town')
 export class Town extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;

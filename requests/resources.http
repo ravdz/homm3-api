@@ -1,5 +1,0 @@
-### Read resources
-GET http://localhost:3000/resources
-
-### Read resource
-GET http://localhost:3000/resources/1
