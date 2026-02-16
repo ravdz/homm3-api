@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
 import { IsEnum, IsNumber, IsString, ValidateNested } from 'class-validator';
-import { Resource } from '@/resources/Resource';
+import { ResourceCode } from '@/resources/Resource';
 
 class UnitStatsDTO {
   @IsNumber()
@@ -23,8 +23,8 @@ class UnitStatsDTO {
 }
 
 class CostItemDTO {
-  @IsEnum(Resource)
-  resource: Resource;
+  @IsEnum(ResourceCode)
+  resource: ResourceCode;
 
   @IsNumber()
   units: number;

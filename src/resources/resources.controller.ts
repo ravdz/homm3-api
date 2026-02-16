@@ -5,33 +5,21 @@ import {
   ParseIntPipe,
   NotFoundException,
 } from '@nestjs/common';
-import { Resource } from '@/resources/Resource';
+import { RESOURCES, RESOURCES_BY_ID } from '@/resources/Resource';
 
 @Controller('resources')
 export class ResourcesController {
-  resources = [
-    Resource.Gold,
-    Resource.Wood,
-    Resource.Ore,
-    Resource.Gems,
-    Resource.Mercury,
-    Resource.Sulfur,
-    Resource.Crystal,
-  ];
-
   @Get()
   getResources() {
-    return this.resources;
+    return RESOURCES;
   }
 
   @Get(':id')
   getResource(@Param('id', ParseIntPipe) resourceId: number) {
-    const specifyResource = this.resources.find(
-      (id, index) => index + 1 === resourceId,
-    );
-    if (!specifyResource) {
+    const resource = RESOURCES_BY_ID.get(resourceId);
+    if (!resource) {
       throw new NotFoundException(`Resource id: ${resourceId} not found`);
     }
-    return specifyResource;
+    return resource;
   }
 }

@@ -5,7 +5,7 @@ import { HeroClass } from '@/classes/Class';
 import { Speciality } from '@/specialitys/Speciality';
 import { Hero } from '@/heroes/Hero';
 import { Unit } from '@/units/Unit';
-import { Resource } from '@/resources/Resource';
+import { RESOURCES_BY_CODE, ResourceCode } from '@/resources/Resource';
 
 async function runSeed() {
   await dataSource.initialize();
@@ -16,12 +16,11 @@ async function runSeed() {
   const heroRepo = dataSource.getRepository(Hero);
   const unitRepo = dataSource.getRepository(Unit);
 
-  const existing = await townRepo.count();
-  if (existing > 0) {
-    console.log('Seed already applied (towns exist). Skip.');
-    await dataSource.destroy();
-    return;
-  }
+  await unitRepo.createQueryBuilder().delete().execute();
+  await heroRepo.createQueryBuilder().delete().execute();
+  await specialityRepo.createQueryBuilder().delete().execute();
+  await classRepo.createQueryBuilder().delete().execute();
+  await townRepo.createQueryBuilder().delete().execute();
 
   const castle = await townRepo.save(townRepo.create({ name: 'Castle' }));
   const rampart = await townRepo.save(townRepo.create({ name: 'Rampart' }));
@@ -62,7 +61,7 @@ async function runSeed() {
       name: 'Pikeman',
       level: 1,
       town: castle,
-      cost: [{ resource: Resource.Gold, units: 60 }],
+      cost: [{ resource: RESOURCES_BY_CODE.get(ResourceCode.Gold), units: 60 }],
       stats: {
         min_damage: 1,
         max_damage: 3,
