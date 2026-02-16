@@ -5,6 +5,7 @@ import {
   BaseEntity,
   ManyToOne,
 } from 'typeorm';
+import { IsOptional } from 'class-validator';
 import { Resource } from '@/resources/Resource';
 import { Town } from '@/towns/Town';
 
@@ -38,9 +39,11 @@ export class Unit extends BaseEntity {
   })
   town: Town;
 
-  @Column({ type: 'json' })
+  @Column({ type: 'json', nullable: true })
+  @IsOptional()
   cost: CostItem[];
 
-  @Column({ type: 'json' })
+  @Column({ type: 'json', nullable: true })
+  @IsOptional()
   stats: UnitStats;
 }

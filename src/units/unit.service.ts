@@ -45,12 +45,15 @@ export class UnitService {
     return await this.getOneById(newUnit.id);
   }
 
-  async update(unit: UpdateUnitDTO): Promise<Unit> {
-    const unitToUpdate = await this.getOneById(unit.id);
-    Object.assign(unitToUpdate, unit);
-    unitToUpdate.town = await this.townService.getOneById(unit.townId);
+  async update(unitId: number, unit: UpdateUnitDTO): Promise<Unit> {
+    const unitToUpdate = await this.getOneById(unitId);
+    const { townId, ...rest } = unit;
+    Object.assign(unitToUpdate, rest);
+    if (townId) {
+      unitToUpdate.town = await this.townService.getOneById(townId);
+    }
     await unitToUpdate.save();
-    return await this.getOneById(unit.id);
+    return await this.getOneById(unitId);
   }
 
   async delete(unitId: number): Promise<Unit> {

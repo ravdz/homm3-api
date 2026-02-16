@@ -2,7 +2,7 @@ import {
   Controller,
   Get,
   Post,
-  Put,
+  Patch,
   Delete,
   Param,
   Body,
@@ -38,10 +38,13 @@ export class UnitsController {
     return this.unitService.create(unit);
   }
 
-  @Put()
+  @Patch(':id')
   @UseGuards(AuthService)
-  updateUnit(@Body() unit: UpdateUnitDTO) {
-    return this.unitService.update(unit);
+  updateUnit(
+    @Param('id', ParseIntPipe) unitId: number,
+    @Body() unit: UpdateUnitDTO,
+  ) {
+    return this.unitService.update(unitId, unit);
   }
 
   @Delete(':id')

@@ -1,53 +1,23 @@
 import { Type } from 'class-transformer';
-import { IsEnum, IsNumber, IsString, ValidateNested } from 'class-validator';
-import { ResourceCode } from '@/resources/Resource';
+import { PartialType, OmitType } from '@nestjs/mapped-types';
+import { ValidateNested } from 'class-validator';
+import {
+  CreateUnitDTO,
+  CostItemDTO,
+  UnitStatsDTO,
+} from '@/units/dto/create-unit.dto';
 
-class UnitStatsDTO {
-  @IsNumber()
-  min_damage: number;
+class UpdateCostItemDTO extends PartialType(CostItemDTO) {}
+class UpdateUnitStatsDTO extends PartialType(UnitStatsDTO) {}
 
-  @IsNumber()
-  max_damage: number;
-
-  @IsNumber()
-  attack: number;
-
-  @IsNumber()
-  defense: number;
-
-  @IsNumber()
-  health: number;
-
-  @IsNumber()
-  speed: number;
-}
-
-class CostItemDTO {
-  @IsEnum(ResourceCode)
-  resource: ResourceCode;
-
-  @IsNumber()
-  units: number;
-}
-
-export class UpdateUnitDTO {
-  @IsNumber()
-  id: number;
-
-  @IsString()
-  name: string;
-
-  @IsNumber()
-  level: number;
-
-  @IsNumber()
-  townId: number;
-
+export class UpdateUnitDTO extends PartialType(
+  OmitType(CreateUnitDTO, ['cost', 'stats'] as const),
+) {
   @ValidateNested({ each: true })
-  @Type(() => CostItemDTO)
-  cost: CostItemDTO[];
+  @Type(() => UpdateCostItemDTO)
+  cost?: UpdateCostItemDTO[];
 
   @ValidateNested()
-  @Type(() => UnitStatsDTO)
-  stats: UnitStatsDTO;
+  @Type(() => UpdateUnitStatsDTO)
+  stats?: UpdateUnitStatsDTO;
 }
