@@ -34,19 +34,19 @@ export class TownsController {
 
   @Post()
   @UseGuards(AuthService)
-  createClass(@Body() town: CreateTownDTO) {
+  createTown(@Body() town: CreateTownDTO) {
     return this.townService.create(town);
   }
 
   @Put()
   @UseGuards(AuthService)
-  updateClass(@Body() hero: UpdateTownDTO) {
-    return this.townService.update(hero);
+  updateTown(@Body() town: UpdateTownDTO) {
+    return this.townService.update(town);
   }
 
   @Delete(':id')
   @UseGuards(AuthService)
-  deleteClass(@Param('id', ParseIntPipe) townId: number) {
+  deleteTown(@Param('id', ParseIntPipe) townId: number) {
     return this.townService.delete(townId);
   }
 }

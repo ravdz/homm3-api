@@ -34,19 +34,19 @@ export class UnitsController {
 
   @Post()
   @UseGuards(AuthService)
-  createClass(@Body() unit: CreateUnitDTO) {
+  createUnit(@Body() unit: CreateUnitDTO) {
     return this.unitService.create(unit);
   }
 
   @Put()
   @UseGuards(AuthService)
-  updateClass(@Body() unit: UpdateUnitDTO) {
+  updateUnit(@Body() unit: UpdateUnitDTO) {
     return this.unitService.update(unit);
   }
 
   @Delete(':id')
   @UseGuards(AuthService)
-  deleteClass(@Param('id', ParseIntPipe) unitId: number) {
+  deleteUnit(@Param('id', ParseIntPipe) unitId: number) {
     return this.unitService.delete(unitId);
   }
 }
